@@ -4,13 +4,13 @@ Introducción a Ciencias de la Computación
 Práctica 9: Interfaces gráficas
 -------------------------------
 
-### Fecha de entrega: martes 31 de mayo, 2022
+### Fecha de entrega: martes 29 de noviembre, 2022
 
 Deben agregarle una interfaz gráfica con
 [JavaFX](https://docs.oracle.com/javafx/2/get_started/jfxpub-get_started.htm) a
 su base de datos de estudiantes.
 
-![Interfaz gráfica](https://aztlan.fciencias.unam.mx/gitlab/2023-1-icc/curso/-/wikis/uploads/f186fc2103325b56856959494cac5279/Screenshot_from_2022-11-15_01-34-05.png)
+    ![Interfaz gráfica](https://aztlan.fciencias.unam.mx/gitlab/2023-1-icc/curso/-/wikis/uploads/f186fc2103325b56856959494cac5279/Screenshot_from_2022-11-15_01-34-05.png)
 
 Esto implicará cambiar las propiedades de
 [Estudiante](https://aztlan.fciencias.unam.mx/gitlab/2023-1-icc/practica9/-/blob/main/src/main/java/mx/unam/ciencias/icc/Estudiante.java),
