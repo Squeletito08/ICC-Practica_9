@@ -37,16 +37,22 @@ public abstract class ControladorFormaEstudiante {
      * Manejador para cuando se activa el botón cancelar.
      * @param evento el evento que generó la acción.
      */
-    @FXML protected void cancelar(ActionEvent evento) {
-        // Aquí va su código.
+    @FXML protected void cancelar (ActionEvent evento) {
+        aceptado = false;
+        escenario.close();
     }
 
     /**
      * Define el escenario del diálogo.
      * @param escenario el nuevo escenario del diálogo.
      */
-    public void setEscenario(Stage escenario) {
-        // Aquí va su código.
+    public void setEscenario (Stage escenario) {
+        this.escenario = escenario;
+        Scene escena = escenario.getScene();
+        KeyCodeCombination combinacion = new KeyCodeCombination (KeyCode.ENTER,
+                                         KeyCombination.CONTROL_DOWN);
+        ObservableMap <KeyCombination,Runnable> accs = escena.getAccelerators();
+        accs.put (combinacion, () -> botonAceptar.fire());
     }
 
     /**
@@ -55,7 +61,7 @@ public abstract class ControladorFormaEstudiante {
      *         <code>false</code> en otro caso.
      */
     public boolean isAceptado() {
-        // Aquí va su código.
+        return aceptado;
     }
 
     /**
@@ -70,7 +76,11 @@ public abstract class ControladorFormaEstudiante {
      *         otro caso.
      */
     protected boolean verificaNombre(String nombre) {
-        // Aquí va su código.
+        if (nombre == null || nombre.isEmpty())
+            return false;
+
+        this.nombre = nombre;
+        return true;
     }
 
     /**
@@ -80,7 +90,15 @@ public abstract class ControladorFormaEstudiante {
      *         <code>false</code> en otro caso.
      */
     protected boolean verificaCuenta(String cuenta) {
-        // Aquí va su código.
+        if(cuenta == null || cuenta.isEmpty())
+            return false;
+        try{
+            this.cuenta = Integer.parseInt(cuenta);
+        }
+        catch(NumberFormatException nfe){
+            return false; 
+        }
+        return true; 
     }
 
     /**
@@ -90,7 +108,16 @@ public abstract class ControladorFormaEstudiante {
      *         otro caso.
      */
     protected boolean verificaPromedio(String promedio) {
-        // Aquí va su código.
+        if (promedio == null || promedio.isEmpty())
+            return false;
+
+        try {
+            this.promedio = Double.parseDouble(promedio);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -100,6 +127,14 @@ public abstract class ControladorFormaEstudiante {
      *         otro caso.
      */
     protected boolean verificaEdad(String edad) {
-        // Aquí va su código.
+        if (edad == null || edad . isEmpty ())
+            return false;
+        try {
+            this.edad = Integer.parseInt(edad);
+        } catch (NumberFormatException nfe) {
+            return false;
+        }
+
+        return true;
     }
 }
